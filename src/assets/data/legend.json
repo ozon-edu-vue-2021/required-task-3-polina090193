@@ -1,5 +1,11 @@
 [
   {
+    "group_id": null,
+    "color": "gray",
+    "text": "Нет подразделения",
+    "counter": 2
+  },
+  {
     "group_id": 0,
     "color": "blueviolet",
     "text": "Подразделение 1",
