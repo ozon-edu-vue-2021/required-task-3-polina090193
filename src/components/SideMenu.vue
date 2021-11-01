@@ -38,7 +38,7 @@
       <div v-else class="profile">
         <div v-if="!person" class="profile__empty">Место пустое</div>
 
-        <PersonCard :person="person" />
+        <PersonCard v-else :person="person" />
       </div>
     </div>
   </div>
@@ -79,6 +79,9 @@ export default {
     this.loadLegend();
   },
   mounted() {
+    this.makeChart();
+  },
+  updated() {
     this.makeChart();
   },
   methods: {

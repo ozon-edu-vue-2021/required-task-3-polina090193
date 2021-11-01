@@ -1,5 +1,5 @@
 <template>
-  <div class="map">
+  <div class="map" v-click-empty-space="clickEmpty">
     <h3>Карта офиса</h3>
 
     <div v-if="!isLoading" class="map-root">
@@ -16,11 +16,15 @@ import * as d3 from "d3";
 import tables from "@/assets/data/tables.json";
 import Table from "@/assets/images/workPlace.svg";
 import legend from "@/assets/data/legend.json";
+import clickEmptySpace from "../utils/directives/clickEmptySpace";
 
 export default {
   components: {
     MapSVG,
     Table,
+  },
+  directives: {
+    clickEmptySpace,
   },
   data() {
     return {
@@ -75,6 +79,9 @@ export default {
     },
     clickTable(tableId) {
       this.$emit("click-table", tableId);
+    },
+    clickEmpty() {
+      this.$emit("click-empty");
     },
   },
 };

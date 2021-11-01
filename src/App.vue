@@ -1,8 +1,12 @@
 <template>
   <div id="app">
     <div class="office">
-      <Map @click-table="showProfile" />
-      <SideMenu :isUserOpenned="isUserOpenned" :person="openedUser" />
+      <Map @click-table="showProfile" @click-empty="closeProfile" />
+      <SideMenu
+        :isUserOpenned.sync="isUserOpenned"
+        :person="openedUser"
+        ref="sideMenu"
+      />
     </div>
   </div>
 </template>
@@ -31,6 +35,9 @@ export default {
     showProfile(id) {
       this.isUserOpenned = true;
       this.openedUser = this.people.find((person) => person.tableId === id);
+    },
+    closeProfile() {
+      this.$refs.sideMenu.closeProfile();
     },
   },
 };
