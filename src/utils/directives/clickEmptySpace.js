@@ -5,7 +5,7 @@ export default {
         elm = event.target;
 
       if (!elm.classList.contains("table") && !elm.classList.contains("menu")) {
-        while (elm !== document.body) {
+        while (!!elm && elm !== document.body) {
           if (
             elm.classList.contains("table") ||
             elm.classList.contains("menu")

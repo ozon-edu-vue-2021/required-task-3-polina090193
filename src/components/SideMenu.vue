@@ -82,7 +82,7 @@ export default {
     this.makeChart();
   },
   updated() {
-    this.makeChart();
+    if (!this.isUserOpenned) this.makeChart();
   },
   methods: {
     loadLegend() {
