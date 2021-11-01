@@ -16,6 +16,9 @@
 </template>
 
 <script>
+import { format } from "date-fns";
+import { ru } from "date-fns/locale";
+
 export default {
   props: {
     person: {
@@ -25,7 +28,9 @@ export default {
   },
   computed: {
     formatedDate() {
-      return this.person.registered;
+      return format(new Date(this.person.registered), "dd MMMM yyyy", {
+        locale: ru,
+      });
     },
   },
 };
