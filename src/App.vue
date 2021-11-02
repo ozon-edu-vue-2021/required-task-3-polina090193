@@ -37,7 +37,7 @@ export default {
       this.openedUser = this.people.find((person) => person.tableId === id);
     },
     closeProfile() {
-      this.$refs.sideMenu.closeProfile();
+      this.isUserOpenned = false;
     },
   },
 };
